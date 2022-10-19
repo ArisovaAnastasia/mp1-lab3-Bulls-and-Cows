@@ -37,7 +37,7 @@ int main() {
         scanf("%i",&g);
         int guess[5]={(0)};
         for(int i=0;i<n;++i,g/=10)
-            guess[i]=g%10;
+            guess[n-1-i]=g%10;
         for(int i=0;i<n;++i)
         {
             if(number[i]==guess[i])
