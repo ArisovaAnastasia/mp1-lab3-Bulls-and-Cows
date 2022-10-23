@@ -35,7 +35,7 @@ int main() {
         printf("Input guess:");
         int g;
         scanf("%i",&g);
-        int guess[5]={(0)};
+        int guess[5]={-1,-1,-1,-1,-1};//нули могут вызвывать появление лишних коров и быков
         for(int i=0;i<n;++i,g/=10)
             guess[n-1-i]=g%10;
         for(int i=0;i<n;++i)
