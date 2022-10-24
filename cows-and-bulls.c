@@ -16,7 +16,7 @@ int main() {
 
     for (int i = 1; i < 10; i++) {    // Shuffle array with decimal digits
         int temp = array[i];
-        int randomIndex = rand() % 9;
+        int randomIndex = rand() % 10;
 
         array[i] = array[randomIndex];
         array[randomIndex] = temp;
