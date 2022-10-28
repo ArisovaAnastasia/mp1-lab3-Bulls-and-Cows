@@ -9,7 +9,7 @@ int main() {
 	srand(time(NULL));
 	int n, user = 0; //user - число пользователя
 	int masrand[5];// позиции цифр загаданного числа
-	int posi[10] = {0};
+	int posi[10] = { 0 };
 	int cow = 0, bull = 0;
 	int k = 0;
 	int lol = 0;
@@ -23,13 +23,13 @@ int main() {
 	} while (!((2 <= n) && (n <= 5)));
 	//создание рандомного загаданного числа
 	masrand[0] = 1 + rand() % 9;
-	posi[masrand[0]] = 5;
+	posi[masrand[0]] = 1;
 	for (int i = 1; i < n; ++i)
 	{
 		do {
 			masrand[i] = rand() % 10;
-		} while (posi[masrand[i]] == 5);
-		posi[masrand[i]] = 5;
+		} while (posi[masrand[i]] == 1);
+		posi[masrand[i]] = 1;
 	}
 	for (int i = 0; i < n; ++i) { //показывает, какое число было загадано, чтобы быстрее можно было проверить работу программы
 		printf("%d", masrand[i]);
@@ -37,30 +37,24 @@ int main() {
 	printf("\n");
 	printf("Отгадайте число:\n");
 	do {
-		bull = 0;
 		cow = 0;
-		scanf_s("%d", &user);
-		// Переписываем число пользователя в массив
-		for (int i = 0; i < n; ++i) {
-			lol = pow(10, (n - i - 1));
-			if (i == 0) {
-				posi[i] = user / 10;
-			}
-			else {
-				posi[i] = user / lol % 10;
-			}
+		bull = 0;
+		scanf_s("%i", &user);
+		for (int i = n - 1; i >= 0; --i) {
+			posi[i] = user % 10;
+			user /= 10;
 		}
-		// считаем кол-во быков и коров
 		for (int i = 0; i < n; ++i) {
 			for (int j = 0; j < n; ++j) {
-				if (posi[i] == masrand[j]&& i==j) 
-					bull += 1;
-				if (posi[i] == masrand[j] && i != j)
-					cow += 1;
+				if (posi[i] == masrand[j] && j == i) {
+					bull++;
+				}
+				if (posi[i] == masrand[j] && j != i)
+					cow++;
 			}
 		}
 		k += 1;
-		printf("\n%dкоров %dбыков количество попыток: %d\n\n", cow, bull,k);
+		printf("\n%dкоров %dбыков количество попыток: %d\n\n", cow, bull, k);
 	} while (bull != n);
 
 	printf("ПОЗДРАВЛЯЕМ, ВЫ....ПРОШЛИ.....ИГРУ.....\n");
