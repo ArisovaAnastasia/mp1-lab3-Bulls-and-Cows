@@ -8,6 +8,7 @@ int main(){
     srand(time(NULL));
     setlocale(LC_ALL,"Russian");
     int n, N, unknown_number, user_number = 0, temporal_user, temporal, cows, bulls;
+    int tr = 0, m = 0;
 
     printf("Введите длину числа от 2 до 5 включительно: ");
     scanf("%i", &n);
@@ -18,8 +19,24 @@ int main(){
         scanf("%i", &n);
     }
     N = pow(10, n-1);
-    unknown_number = N + rand() % (N - N * 10);
-    printf("%i ", unknown_number);
+
+    while(tr == 0){
+        unknown_number = N + rand() % (N - N * 10);
+        int array[10] ={0};
+        tr = 1;
+        m = unknown_number;
+        while(m > 0){
+            ++array[m%10];
+            m = m / 10;
+        }
+        for(int i = 0; i < 10; ++i){
+            if(array[i] >1) {
+                tr = 0;
+                break;
+            }
+        }
+
+    }
     printf("Попробуйте угадать загаданное компьютером число: ");
 
 
