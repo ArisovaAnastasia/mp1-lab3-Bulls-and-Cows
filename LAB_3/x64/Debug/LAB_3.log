@@ -1,0 +1,4 @@
+﻿  Source.cpp
+C:\Users\katya\source\repos\LAB_3\LAB_3\Source.cpp(9,13): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+C:\Users\katya\source\repos\LAB_3\LAB_3\Source.cpp(13,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  LAB_3.vcxproj -> C:\Users\katya\source\repos\LAB_3\x64\Debug\LAB_3.exe
