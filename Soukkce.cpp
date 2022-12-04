@@ -12,7 +12,7 @@ void main() {
 			printf("enter the data again");
 		}
 	} while ((n < 2) || (n > 5));
-	int* arr = (int*)malloc(n * n * sizeof(int));
+	int* arr = (int*)malloc(n *  sizeof(int));
 	arr[0] = 1 + rand() % (9 - 1 + 1);
 	int ind = arr[0];
 	bool chec[10]={(0)};
@@ -24,12 +24,12 @@ void main() {
 		}while (chec[ind] == 1);
 		chec[ind] = 1;
 	}
+	int* numb = (int*)malloc(n * sizeof(int));
 	do {
 		 bulls = 0;
 		 cows = 0;
 		 printf("enter number ");
 		 int num;
-		 int* numb = (int*)malloc(n * n * sizeof(int));
 		 scanf_s("%i", &num);
 		 for (int i = n - 1;i >= 0;i--) {
 			 numb[i] = num % 10;
@@ -54,4 +54,5 @@ void main() {
 	
 
 	free(arr);
+	free(numb);
 }
